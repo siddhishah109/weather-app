@@ -1,9 +1,12 @@
 .App {
   text-align: center;
 }
-
+*{
+  padding: 0;
+  margin: 0;
+}
 .box{
-  width: 30vw;
+  width: 400px;
   height: 60vh;
   margin-top: 125px;
   border-radius: 50px;
@@ -12,4 +15,32 @@
 .cityenter{
   border-radius: 5px;
   border: 2px solid black;
+}
+.phwv{
+  color: white;
+  width: 170px;
+  height: 17vh;
+}
+.logo{
+  background-image: url(../src/img/cloud2.png);
+}
+
+.weather{
+  color: white;
+  font-size: 50px;
+  margin-top: -20px;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.temp{
+  font-size: 25px;
+  color: white;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.suntime{
+  padding-top: 35px;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 15px;
+  color: white;
 }
