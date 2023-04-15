@@ -3,8 +3,10 @@ import logo from '../img/cloud2.png';
 import { useState , useEffect } from 'react';
 
 
+
 const OuterBox = () => {
     const [city, setCity] = useState(null);
+    // const [city1, setCity1] = useState(null);    
     const [search, setSearch] = useState('mumbai');
 
     useEffect(()=>{
@@ -13,12 +15,32 @@ const OuterBox = () => {
             const resopnse= await(fetch(url));
             const resJson= await resopnse.json();
             // console.log(resJson)
-            setCity(resJson);
+            setCity(resJson.main);
         }
 
 
          fetchApi();
     },[search])
+
+    // useEffect(()=>{
+    //     const fetchApi=async()=>{
+    //         const url=`https://api.openweathermap.org/data/2.5/weather?q=${search}&appid=d2a34a1583e51bce5ed1eb154f3ddbaa`
+    //         const resopnse= await(fetch(url));
+    //         const resJson= await resopnse.json();
+    //         // console.log(resJson)
+    //         setCity1(resJson.sys);
+    //     }
+
+
+    //      fetchApi();
+    // },[search])
+
+
+
+
+
+
+
 
 
 
@@ -27,16 +49,16 @@ const OuterBox = () => {
   return (
 
     <div className='container ' >
-        <div className=' container bg-secondary box'>
-            <input className=' my-3 cityenter' onChange={(e)=>{setSearch(e.target.value)}} placeholder='Enter Your city..'/>
+        <div className=' container border box'>
+            <input className=' my-3 cityenter' onChange={(e)=>{setSearch(e.target.value)}} placeholder='Enter Your city......'/>
         {
             !city ? (<p>No Data Found</p>):
             (
                 <div>
                 <div className='row'>
                 <div className='phwv col'>
-                Precipitation: 0% <br/>
-                Humidity: <br/>
+                Pressure: {city.pressure} <br/>
+            Humidity: {city.humidity} % <br/>
                 Wind: 3 km/h<br/>
                 Visibility:3000 <br/>
                 </div>
@@ -46,13 +68,13 @@ const OuterBox = () => {
                 </div>
                 </div>
                 <div className='weather'>
-                    {city.weather.main} {search}</div>
+                  {search}</div>
                 <div className='temp'>
-                Temp: {city.main.temp}  &nbsp; F/C
+                Temp: {city.temp}  &nbsp; F/C
                 </div>
                 <div className='container suntime '>
-                sunrise:1680915429 &nbsp;&nbsp;
-                sunset:1680960221
+                Sunrise: 12423998 &nbsp;&nbsp;
+                Sunset: 1680960221
     
                 </div>
                 </div>
